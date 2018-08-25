@@ -1,0 +1,18 @@
+{
+	"name": "fb-video-block",
+	"version": "0.0.1",
+	"main": "Gruntfile.js",
+	"browserslist": [
+		"> 0.5%",
+		"ios >= 9",
+		"not dead"
+	],
+	"author": "WebAware https://shop.webaware.com.au/",
+	"private": true,
+	"license": "Copyright (c) 2018 WebAware Pty Ltd",
+	"devDependencies": {
+		"grunt": "^1.0.3",
+		"grunt-contrib-uglify": "^3.4.0",
+		"grunt-eslint": "^21.0.0"
+	}
+}
