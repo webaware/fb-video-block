@@ -46,7 +46,7 @@ class Plugin {
 		$min = SCRIPT_DEBUG ? '' : '.min';
 		$ver = SCRIPT_DEBUG ? time() : FB_VIDEO_BLOCK_VERSION;
 
-		wp_register_script('fb-video-block-editor', plugins_url("js/video-edit$min.js", FB_VIDEO_BLOCK_PLUGIN_FILE), ['wp-blocks', 'wp-element'], $ver, true);
+		wp_register_script('fb-video-block-editor', plugins_url("js/video-edit$min.js", FB_VIDEO_BLOCK_PLUGIN_FILE), ['wp-components', 'wp-element'], $ver, true);
 
 		register_block_type('fb-video-block/fb-video', [
 			'editor_script'		=> 'fb-video-block-editor',
