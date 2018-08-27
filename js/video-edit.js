@@ -34,7 +34,7 @@
 
 		return [
 			el(wp.editor.InspectorControls, { key: "inspector" },
-				el(components.PanelBody, { title: 'Player settings', initialOpen: true },
+				el(components.PanelBody, { title: "Player settings", initialOpen: true },
 					el(TextControl, {
 						type:		"url",
 						label:		"Video URL",
@@ -100,10 +100,10 @@
 	function saveBlock(props) {
 		var attrs = props.attributes;
 
-		return el('figure', {
+		return el("figure", {
 				className: props.className,
 			},
-			el('div', {
+			el("div", {
 				className:					"fb-video",
 				"data-href":				attrs.href,
 				"data-width":				attrs.width,
@@ -115,10 +115,10 @@
 		);
 	}
 
-	wp.blocks.registerBlockType('fb-video-block/fb-video', {
-		title:		'Facebook Video',
-		icon:		'media-video',
-		category:	'embed',
+	wp.blocks.registerBlockType("fb-video-block/fb-video", {
+		title:		"Facebook Video",
+		icon:		"media-video",
+		category:	"embed",
 		attributes:	{
 						href: {
 							type:		"url",
