@@ -36,7 +36,6 @@ class Plugin {
 	public function addHooks() {
 		add_action('init', [$this, 'registerBlocks']);
 		add_action('wp', [$this, 'maybeAddFbScript']);
-		add_action('admin_print_footer_scripts-post.php', [$this, 'addFbScript']);
 	}
 
 	/**
