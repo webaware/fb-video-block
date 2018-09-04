@@ -42,6 +42,11 @@ class Plugin {
 	* register editor blocks
 	*/
 	public function registerBlocks() {
+		if (!function_exists('register_block_type')) {
+			// no Gutenberg, nothing to do
+			return;
+		}
+
 		$min = SCRIPT_DEBUG ? '' : '.min';
 		$ver = SCRIPT_DEBUG ? time() : FB_VIDEO_BLOCK_VERSION;
 
