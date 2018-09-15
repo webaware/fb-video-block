@@ -1,6 +1,13 @@
 {
 	"root": true,
-    "extends": "eslint:recommended",
+    "extends": [
+		"eslint:recommended",
+		"plugin:react/all",
+	],
+
+	"plugins": [
+		"react",
+	],
 
     "rules": {
     	"block-scoped-var": "error",

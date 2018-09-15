@@ -17,6 +17,7 @@
 		"babel-plugin-transform-react-jsx": "^6.24.1",
 		"babel-preset-react": "^6.24.1",
 		"eslint-plugin-jasmine": "^2.10.1",
+		"eslint-plugin-react": "^7.11.1",
 		"grunt": "^1.0.3",
 		"grunt-babel": "^8.0.0",
 		"grunt-contrib-uglify-es": "^3.3.0",
