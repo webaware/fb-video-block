@@ -1,21 +1,18 @@
 
 (function(wp) {
 
-	var el = wp.element.createElement;
-
 	/**
 	* declare the editor properties for the block
 	* @param {Object} props
 	* @return {Array}
 	*/
-	function editBlock(props) {
-		var attrs			= props.attributes;
-		var components		= wp.components;
-		var TextControl		= components.TextControl;
-		var ToggleControl	= components.ToggleControl;
+	function editBlock({ clientId, attributes, setAttributes }) {
+		const { href, width, allowfullscreen, autoplay, showText, showCaptions } = attributes;
+		const { InspectorControls } = wp.editor;
+		const { PanelBody, TextControl, ToggleControl } = wp.components;
 
 		function getAdminBlockId() {
-			return "fb-video-block-admin-" + props.clientId;
+			return "fb-video-block-admin-" + clientId;
 		}
 
 		function getAdminBlock() {
@@ -23,62 +20,31 @@
 		}
 
 		function updateHref(value) {
-			var displayURL = getAdminBlock().querySelector("span.fb-video-block-url");
+			const displayURL = getAdminBlock().querySelector("span.fb-video-block-url");
 
-			props.setAttributes({ href: value });
+			setAttributes({ href: value });
 
 			if (displayURL) {
 				displayURL.textContent = value;
 			}
 		}
 
-		return [
-			el(wp.editor.InspectorControls, { key: "inspector" },
-				el(components.PanelBody, { title: "Player settings", initialOpen: true },
-					el(TextControl, {
-						type:		"url",
-						label:		"Video URL",
-						value:		attrs.href,
-						onChange:	updateHref,
-					}),
-					el(TextControl, {
-						type:		"number",
-						label:		"Width",
-						value:		attrs.width,
-						min:		0,
-						step:		1,
-						onChange:	function(value) { props.setAttributes({ width: value }); },
-					}),
-					el(ToggleControl, {
-						label:		"Allow full screen",
-						checked:	attrs.allowfullscreen,
-						onChange:	function(value) { props.setAttributes({ allowfullscreen: value }); },
-					}),
-					el(ToggleControl, {
-						label:		"Autoplay",
-						checked:	attrs.autoplay,
-						onChange:	function(value) { props.setAttributes({ autoplay: value }); },
-					}),
-					el(ToggleControl, {
-						label:		"Show Captions",
-						checked:	attrs.showCaptions,
-						onChange:	function(value) { props.setAttributes({ showCaptions: value }); },
-					}),
-					el(ToggleControl, {
-						label:		"Show Text",
-						checked:	attrs.showText,
-						onChange:	function(value) { props.setAttributes({ showText: value }); },
-					})
-				)
-			),
-			el("p", { id: getAdminBlockId() },
-				el("i", {
-					className:					"dashicons dashicons-media-video",
-					"aria-hidden":				"true",
-				}),
-				el("span", {}, "Facebook: "),
-				el("span", { className: "fb-video-block-url" }, attrs.href || "not set")
-			),
+		return	[
+			<InspectorControls key="inspector">
+				<PanelBody title="Player settings" initialOpen="true">
+					<TextControl type="url" label="Video URL" value={ href } onChange={ updateHref } />
+					<TextControl type="number" label="Width" value={ width } min="0" step="1" onChange={ (value) => setAttributes({ width: value} ) } />
+					<ToggleControl label="Allow full screen" checked={ allowfullscreen } onChange={ (value) => setAttributes({ allowfullscreen: value} ) } />
+					<ToggleControl label="Autoplay" checked={ autoplay } onChange={ (value) => setAttributes({ autoplay: value} ) } />
+					<ToggleControl label="Show Captions" checked={ showCaptions } onChange={ (value) => setAttributes({ showCaptions: value} ) } />
+					<ToggleControl label="Show Text" checked={ showText } onChange={ (value) => setAttributes({ showText: value} ) } />
+				</PanelBody>
+			</InspectorControls>,
+			<p>
+				<i class="dashicons dashicons-media-video" aria-hidden="true"></i>
+				<span>Facebook: </span>
+				<span class="fb-video-block-url">{ href || "not set" }</span>
+			</p>
 		];
 	}
 
@@ -97,22 +63,18 @@
 		 data-show-captions="false"></div>
 
 	 */
-	function saveBlock(props) {
-		var attrs = props.attributes;
+	function saveBlock({ className, attributes }) {
+		const { href, width, allowfullscreen, autoplay, showText, showCaptions } = attributes;
 
-		return el("figure", {
-				className: props.className,
-			},
-			el("div", {
-				className:					"fb-video",
-				"data-href":				attrs.href,
-				"data-width":				attrs.width,
-				"data-allowfullscreen":		attrs.allowfullscreen,
-				"data-autoplay":			attrs.autoplay,
-				"data-show-text":			attrs.showText,
-				"data-show-captions":		attrs.showCaptions,
-			})
-		);
+		return	<figure class={ className }>
+					<div class="fb-video"
+						data-href={ href }
+						data-width={ width }
+						data-allowfullscreen={ allowfullscreen }
+						data-autoplay={ autoplay }
+						data-showText={ showText }
+						data-showCaptions={ showCaptions }></div>
+				</figure>
 	}
 
 	wp.blocks.registerBlockType("fb-video-block/fb-video", {
