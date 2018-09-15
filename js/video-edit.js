@@ -94,11 +94,14 @@
           showText: value
         });
       }
-    }))), React.createElement("p", null, React.createElement("i", {
-      "class": "dashicons dashicons-media-video",
+    }))), React.createElement("p", {
+      key: "content",
+      id: getAdminBlockId()
+    }, React.createElement("i", {
+      className: "dashicons dashicons-media-video",
       "aria-hidden": "true"
-    }), React.createElement("span", null, "Facebook: "), React.createElement("span", {
-      "class": "fb-video-block-url"
+    }), React.createElement("span", null, "Facebook:"), React.createElement("span", {
+      className: "fb-video-block-url"
     }, href || "not set"))];
   }
   /**
@@ -126,9 +129,10 @@
         showText = attributes.showText,
         showCaptions = attributes.showCaptions;
     return React.createElement("figure", {
-      "class": className
+      key: "content",
+      className: className
     }, React.createElement("div", {
-      "class": "fb-video",
+      className: "fb-video",
       "data-href": href,
       "data-width": width,
       "data-allowfullscreen": allowfullscreen,
