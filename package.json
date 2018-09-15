@@ -1,18 +1,22 @@
 {
 	"name": "fb-video-block",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"main": "Gruntfile.js",
 	"browserslist": [
 		"> 0.5%",
-		"ios >= 9",
+		"ios >= 9.3",
 		"not dead"
 	],
 	"author": "WebAware https://shop.webaware.com.au/",
 	"private": true,
 	"license": "Copyright (c) 2018 WebAware Pty Ltd",
 	"devDependencies": {
+		"@babel/cli": "^7.0.0",
+		"@babel/core": "^7.0.1",
+		"@babel/preset-env": "^7.0.0",
 		"grunt": "^1.0.3",
-		"grunt-contrib-uglify": "^3.4.0",
+		"grunt-babel": "^8.0.0",
+		"grunt-contrib-uglify-es": "^3.3.0",
 		"grunt-eslint": "^21.0.0"
 	}
 }

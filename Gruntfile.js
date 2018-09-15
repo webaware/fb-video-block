@@ -6,9 +6,25 @@ module.exports = function (grunt) {
 		eslint: {
 			all: [
 				"Gruntfile.js",
-				"js/*.js",
-				"!js/*.min.js"
+				"jsx/*.jsx",
 			]
+		},
+
+		babel: {
+			options: {
+				presets: [
+					'@babel/preset-env',
+				]
+			},
+			dist: {
+				files: [{
+					"expand": true,
+					"cwd": "jsx",
+					"src": ["**/*.jsx"],
+					"dest": "js/",
+					"ext": ".js",
+				}]
+			}
 		},
 
 		uglify: {
@@ -33,7 +49,9 @@ module.exports = function (grunt) {
 
 	});
 
-	grunt.loadNpmTasks("grunt-contrib-uglify");
+	grunt.loadNpmTasks("grunt-babel");
+	grunt.loadNpmTasks("grunt-contrib-uglify-es");
 	grunt.loadNpmTasks("grunt-eslint");
 
+	grunt.registerTask("jsx", ["babel","uglify"]);
 };

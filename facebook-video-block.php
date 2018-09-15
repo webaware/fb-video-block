@@ -3,7 +3,7 @@
 Plugin Name: Facebook Video Block
 Plugin URI: https://github.com/webaware/fb-video-block
 Description: a Gutenberg block for adding Facebook videos to a page/post
-Version: 0.0.1
+Version: 0.0.2
 Author: WebAware
 Author URI: https://shop.webaware.com.au/
 */
@@ -35,7 +35,7 @@ define('FB_VIDEO_BLOCK_PLUGIN_ROOT', __DIR__ . '/');
 define('FB_VIDEO_BLOCK_PLUGIN_NAME', basename(__DIR__) . '/' . basename(__FILE__));
 
 define('FB_VIDEO_BLOCK_MIN_PHP', '5.4');
-define('FB_VIDEO_BLOCK_VERSION', '0.0.1');
+define('FB_VIDEO_BLOCK_VERSION', '0.0.2');
 
 if (version_compare(PHP_VERSION, FB_VIDEO_BLOCK_MIN_PHP, '<')) {
 	return;
