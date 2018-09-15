@@ -12,8 +12,11 @@ module.exports = function (grunt) {
 
 		babel: {
 			options: {
+				plugins: [
+					"transform-react-jsx",
+				],
 				presets: [
-					'@babel/preset-env',
+					"@babel/preset-env",
 				]
 			},
 			dist: {

@@ -35,10 +35,14 @@
 
 	"parserOptions": {
 		"ecmaVersion": 6,
+		"ecmaFeatures": {
+			"jsx" : true,
+		},
 	},
 
 	"env": {
 		"browser": true,
+		"jasmine": true,
 	},
 
 	"globals": {
