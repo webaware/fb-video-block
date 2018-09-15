@@ -40,10 +40,10 @@
 					<ToggleControl label="Show Text" checked={ showText } onChange={ (value) => setAttributes({ showText: value} ) } />
 				</PanelBody>
 			</InspectorControls>,
-			<p>
-				<i class="dashicons dashicons-media-video" aria-hidden="true"></i>
-				<span>Facebook: </span>
-				<span class="fb-video-block-url">{ href || "not set" }</span>
+			<p key="content" id={ getAdminBlockId() }>
+				<i className="dashicons dashicons-media-video" aria-hidden="true" />
+				<span>Facebook:</span>
+				<span className="fb-video-block-url">{ href || "not set" }</span>
 			</p>
 		];
 	}
@@ -66,15 +66,19 @@
 	function saveBlock({ className, attributes }) {
 		const { href, width, allowfullscreen, autoplay, showText, showCaptions } = attributes;
 
-		return	<figure class={ className }>
-					<div class="fb-video"
-						data-href={ href }
-						data-width={ width }
-						data-allowfullscreen={ allowfullscreen }
-						data-autoplay={ autoplay }
-						data-showText={ showText }
-						data-showCaptions={ showCaptions }></div>
-				</figure>
+		return (
+			<figure key="content" className={ className }>
+				<div
+					className="fb-video"
+					data-href={ href }
+					data-width={ width }
+					data-allowfullscreen={ allowfullscreen }
+					data-autoplay={ autoplay }
+					data-showText={ showText }
+					data-showCaptions={ showCaptions }
+				/>
+			</figure>
+		);
 	}
 
 	wp.blocks.registerBlockType("fb-video-block/fb-video", {
