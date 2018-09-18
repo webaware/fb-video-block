@@ -74,8 +74,8 @@
 					data-width={ width }
 					data-allowfullscreen={ allowfullscreen }
 					data-autoplay={ autoplay }
-					data-showText={ showText }
-					data-showCaptions={ showCaptions }
+					data-show-text={ showText }
+					data-show-captions={ showCaptions }
 				/>
 			</figure>
 		);
