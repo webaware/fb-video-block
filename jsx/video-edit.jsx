@@ -1,4 +1,3 @@
-
 (function(wp) {
 
 	/**
@@ -33,16 +32,23 @@
 			<InspectorControls key="inspector">
 				<PanelBody title="Player settings" initialOpen="true">
 					<TextControl type="url" label="Video URL" value={ href } onChange={ updateHref } />
+
 					<TextControl type="number" label="Width" value={ width } min="0" step="1" onChange={ (value) => setAttributes({ width: value} ) } />
+
 					<ToggleControl label="Allow full screen" checked={ allowfullscreen } onChange={ (value) => setAttributes({ allowfullscreen: value} ) } />
+
 					<ToggleControl label="Autoplay" checked={ autoplay } onChange={ (value) => setAttributes({ autoplay: value} ) } />
+
 					<ToggleControl label="Show Captions" checked={ showCaptions } onChange={ (value) => setAttributes({ showCaptions: value} ) } />
+
 					<ToggleControl label="Show Text" checked={ showText } onChange={ (value) => setAttributes({ showText: value} ) } />
 				</PanelBody>
 			</InspectorControls>,
 			<p key="content" id={ getAdminBlockId() }>
 				<i className="dashicons dashicons-media-video" aria-hidden="true" />
+
 				<span>Facebook:</span>
+
 				<span className="fb-video-block-url">{ href || "not set" }</span>
 			</p>
 		];
