@@ -2,18 +2,24 @@
 	"root": true,
     "extends": [
 		"eslint:recommended",
-		"plugin:react/all",
+		"plugin:react/recommended"
 	],
 
 	"plugins": [
-		"react",
+		"react"
 	],
+	"settings": {
+		"react": {
+			"version": "16"
+		}
+	},
 
     "rules": {
     	"block-scoped-var": "error",
     	"consistent-return": "error",
     	"dot-notation": "error",
     	"eqeqeq": ["error", "smart"],
+		"no-console": "error",
     	"no-else-return": "error",
     	"no-eval": "error",
     	"no-extend-native": "error",
@@ -34,7 +40,7 @@
     	"no-useless-call": "error",
     	"no-useless-concat": "error",
     	"no-useless-return": "error",
-    	"no-var": "warn",
+		"no-var": "error",
     	"no-warning-comments": "warn",
     	"no-with": "error",
     	"wrap-iife": ["error", "any"],
@@ -54,13 +60,12 @@
 	"parserOptions": {
 		"ecmaVersion": 6,
 		"ecmaFeatures": {
-			"jsx" : true,
-		},
+			"jsx" : true
+		}
 	},
 
 	"env": {
-		"browser": true,
-		"jasmine": true,
+		"browser": true
 	},
 
 	"globals": {
