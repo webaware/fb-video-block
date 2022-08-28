@@ -1,6 +1,6 @@
 {
 	"root": true,
-    "extends": [
+	"extends": [
 		"eslint:recommended",
 		"plugin:react/recommended"
 	],
@@ -8,42 +8,103 @@
 	"plugins": [
 		"react"
 	],
+
 	"settings": {
 		"react": {
 			"version": "16"
 		}
 	},
 
-    "rules": {
-    	"block-scoped-var": "error",
-    	"consistent-return": "error",
-    	"dot-notation": "error",
-    	"eqeqeq": ["error", "smart"],
+	"rules": {
+		"block-scoped-var": "error",
+		"consistent-return": "error",
+		"dot-notation": "error",
+		"eqeqeq": ["error", "smart"],
 		"no-console": "error",
-    	"no-else-return": "error",
-    	"no-eval": "error",
-    	"no-extend-native": "error",
-    	"no-floating-decimal": "error",
-    	"no-implicit-globals": "error",
-    	"no-implied-eval": "error",
-    	"no-lone-blocks": "error",
-    	"no-loop-func": "error",
-    	"no-multi-str": "error",
-    	"no-new": "error",
-    	"no-new-func": "error",
-    	"no-new-wrappers": "error",
-    	"no-octal-escape": "error",
-    	"no-param-reassign": "error",
-    	"no-return-assign": "error",
-    	"no-self-compare": "error",
-    	"no-unmodified-loop-condition": "error",
-    	"no-useless-call": "error",
-    	"no-useless-concat": "error",
-    	"no-useless-return": "error",
+		"no-else-return": "error",
+		"no-eval": "error",
+		"no-extend-native": "error",
+		"no-floating-decimal": "error",
+		"no-implicit-globals": "error",
+		"no-implied-eval": "error",
+		"no-lone-blocks": "error",
+		"no-loop-func": "error",
+		"no-multi-str": "error",
+		"no-new": "error",
+		"no-new-func": "error",
+		"no-new-wrappers": "error",
+		"no-octal-escape": "error",
+		"no-param-reassign": "error",
+		"no-restricted-globals": ["error",	// https://github.com/facebook/create-react-app/tree/main/packages/confusing-browser-globals
+			"addEventListener",
+			"blur",
+			"close",
+			"closed",
+			"confirm",
+			"defaultStatus",
+			"defaultstatus",
+			"event",
+			"external",
+			"find",
+			"focus",
+			"frameElement",
+			"frames",
+			"history",
+			"innerHeight",
+			"innerWidth",
+			"length",
+			"location",
+			"locationbar",
+			"menubar",
+			"moveBy",
+			"moveTo",
+			"name",
+			"onblur",
+			"onerror",
+			"onfocus",
+			"onload",
+			"onresize",
+			"onunload",
+			"open",
+			"opener",
+			"opera",
+			"outerHeight",
+			"outerWidth",
+			"pageXOffset",
+			"pageYOffset",
+			"parent",
+			"print",
+			"removeEventListener",
+			"resizeBy",
+			"resizeTo",
+			"screen",
+			"screenLeft",
+			"screenTop",
+			"screenX",
+			"screenY",
+			"scroll",
+			"scrollbars",
+			"scrollBy",
+			"scrollTo",
+			"scrollX",
+			"scrollY",
+			"self",
+			"status",
+			"statusbar",
+			"stop",
+			"toolbar",
+			"top"
+		],
+		"no-return-assign": "error",
+		"no-self-compare": "error",
+		"no-unmodified-loop-condition": "error",
+		"no-useless-call": "error",
+		"no-useless-concat": "error",
+		"no-useless-return": "error",
 		"no-var": "error",
-    	"no-warning-comments": "warn",
-    	"no-with": "error",
-    	"wrap-iife": ["error", "any"],
+		"no-warning-comments": "warn",
+		"no-with": "error",
+		"wrap-iife": ["error", "any"],
 		"no-shadow-restricted-names": "error",
 		"react/jsx-indent": ["warn", "tab"],
 		"react/jsx-indent-props": ["warn", "tab"],
@@ -54,23 +115,23 @@
 		"react/jsx-no-bind": "off",
 		"react/jsx-one-expression-per-line": "off",
 		"react/jsx-no-literals": "off",
-		"react/prop-types": "off",
-    },
+		"react/prop-types": "off"
+	},
 
 	"parserOptions": {
-		"ecmaVersion": 6,
 		"ecmaFeatures": {
 			"jsx" : true
 		}
 	},
 
 	"env": {
-		"browser": true
+		"browser": true,
+		"es2021": true
 	},
 
 	"globals": {
 		"module": false,
 		"require": false,
-		"wp": false,
+		"wp": false
 	}
 }
