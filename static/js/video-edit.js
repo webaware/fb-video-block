@@ -1,5 +1,3 @@
-"use strict";
-
 (function (wp) {
   /**
   * declare the editor properties for the block
@@ -7,20 +5,27 @@
   * @return {Array}
   */
   function editBlock(_ref) {
-    var clientId = _ref.clientId,
-        attributes = _ref.attributes,
-        setAttributes = _ref.setAttributes;
-    var href = attributes.href,
-        width = attributes.width,
-        allowfullscreen = attributes.allowfullscreen,
-        autoplay = attributes.autoplay,
-        showText = attributes.showText,
-        showCaptions = attributes.showCaptions;
-    var InspectorControls = wp.editor.InspectorControls;
-    var _wp$components = wp.components,
-        PanelBody = _wp$components.PanelBody,
-        TextControl = _wp$components.TextControl,
-        ToggleControl = _wp$components.ToggleControl;
+    let {
+      clientId,
+      attributes,
+      setAttributes
+    } = _ref;
+    const {
+      href,
+      width,
+      allowfullscreen,
+      autoplay,
+      showText,
+      showCaptions
+    } = attributes;
+    const {
+      InspectorControls
+    } = wp.editor;
+    const {
+      PanelBody,
+      TextControl,
+      ToggleControl
+    } = wp.components;
 
     function getAdminBlockId() {
       return "fb-video-block-admin-" + clientId;
@@ -31,7 +36,7 @@
     }
 
     function updateHref(value) {
-      var displayURL = getAdminBlock().querySelector("span.fb-video-block-url");
+      const displayURL = getAdminBlock().querySelector("span.fb-video-block-url");
       setAttributes({
         href: value
       });
@@ -57,43 +62,33 @@
       value: width,
       min: "0",
       step: "1",
-      onChange: function onChange(value) {
-        return setAttributes({
-          width: value
-        });
-      }
+      onChange: value => setAttributes({
+        width: value
+      })
     }), React.createElement(ToggleControl, {
       label: "Allow full screen",
       checked: allowfullscreen,
-      onChange: function onChange(value) {
-        return setAttributes({
-          allowfullscreen: value
-        });
-      }
+      onChange: value => setAttributes({
+        allowfullscreen: value
+      })
     }), React.createElement(ToggleControl, {
       label: "Autoplay",
       checked: autoplay,
-      onChange: function onChange(value) {
-        return setAttributes({
-          autoplay: value
-        });
-      }
+      onChange: value => setAttributes({
+        autoplay: value
+      })
     }), React.createElement(ToggleControl, {
       label: "Show Captions",
       checked: showCaptions,
-      onChange: function onChange(value) {
-        return setAttributes({
-          showCaptions: value
-        });
-      }
+      onChange: value => setAttributes({
+        showCaptions: value
+      })
     }), React.createElement(ToggleControl, {
       label: "Show Text",
       checked: showText,
-      onChange: function onChange(value) {
-        return setAttributes({
-          showText: value
-        });
-      }
+      onChange: value => setAttributes({
+        showText: value
+      })
     }))), React.createElement("p", {
       key: "content",
       id: getAdminBlockId()
@@ -120,14 +115,18 @@
 
 
   function saveBlock(_ref2) {
-    var className = _ref2.className,
-        attributes = _ref2.attributes;
-    var href = attributes.href,
-        width = attributes.width,
-        allowfullscreen = attributes.allowfullscreen,
-        autoplay = attributes.autoplay,
-        showText = attributes.showText,
-        showCaptions = attributes.showCaptions;
+    let {
+      className,
+      attributes
+    } = _ref2;
+    const {
+      href,
+      width,
+      allowfullscreen,
+      autoplay,
+      showText,
+      showCaptions
+    } = attributes;
     return React.createElement("figure", {
       key: "content",
       className: className
